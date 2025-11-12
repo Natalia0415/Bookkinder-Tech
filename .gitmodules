@@ -1,0 +1,6 @@
+[submodule "bookkinder-backend"]
+	path = bookkinder-backend
+	url = https://github.com/tu-usuario/bookkinder-backend.git
+[submodule "bookkinder-frontend"]
+	path = bookkinder-frontend
+	url = https://github.com/tu-usuario/bookkinder-frontend.git

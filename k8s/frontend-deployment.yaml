@@ -1,0 +1,38 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: bookkinder-frontend
+  namespace: bookkinder-dev
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: bookkinder-frontend
+  template:
+    metadata:
+      labels:
+        app: bookkinder-frontend
+    spec:
+      containers:
+        - name: bookkinder-frontend
+          image: bookkinder-frontend:latest
+          imagePullPolicy: Never
+          env:
+            - name: VITE_API_URL
+              value: http://bookkinder-backend:9000
+          ports:
+            - containerPort: 3000
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: bookkinder-frontend
+  namespace: bookkinder-dev
+spec:
+  selector:
+    app: bookkinder-frontend
+  ports:
+    - name: http
+      port: 3000
+      targetPort: 3000
+  type: NodePort
