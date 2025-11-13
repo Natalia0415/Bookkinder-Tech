@@ -18,7 +18,7 @@ return [
 
     'allowed_methods' => ['*'],
 
-    'allowed_origins' => ['http://localhost:3000', 'http://api.bookkinder.test'],
+    'allowed_origins' => ['http://localhost:3000', 'http://api.bookkinder.test', 'http://localhost:8080'],
 
     'allowed_origins_patterns' => [],
 

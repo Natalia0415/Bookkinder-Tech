@@ -17,7 +17,7 @@ export class ApiService {
     private baseUrl: string;
 
     constructor() {
-        this.baseUrl = import.meta.env.VITE_API_BASE_URL || 'http://api.bookkinder.test';
+        this.baseUrl = import.meta.env.VITE_API_BASE_URL || 'http://localhost:8080';
     }
 
     private getAuthHeaders(): Record<string, string> {

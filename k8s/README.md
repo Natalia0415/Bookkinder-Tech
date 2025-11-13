@@ -69,6 +69,11 @@ kubectl apply -n bookkinder-dev -f frontend-deployment.yaml
 minikube addons enable ingress
 kubectl apply -n bookkinder-dev -f ingress.yaml
 ```
+> Si tu entorno no ofrece LoadBalancer automático (p. ej. Minikube en Windows/macOS/Linux), abre otra terminal y ejecuta:
+> ```bash
+> minikube tunnel
+> ```
+> Mantén la terminal abierta mientras utilices el Ingress.
 
 ## Verificación
 - Recursos: `kubectl get all -n bookkinder-dev`
@@ -82,9 +87,10 @@ kubectl apply -n bookkinder-dev -f ingress.yaml
 ## Acceso a la aplicación
 ### Mediante Ingress
 1. Obtén la IP del cluster: `minikube ip`.
-2. Añade `bookkinder.local` a tu archivo `hosts` apuntando a esa IP.
-3. Frontend: `http://bookkinder.local/`
-4. API: `http://bookkinder.local/api`
+2. Inicia (o verifica que siga activo) `minikube tunnel` en otra terminal.
+3. Añade `bookkinder.local` a tu archivo `hosts` apuntando a esa IP.
+4. Frontend: `http://bookkinder.local/`
+5. API: `http://bookkinder.local/api`
 
 ### Mediante port-forward (opcional)
 - Frontend: `kubectl port-forward -n bookkinder-dev svc/bookkinder-frontend 3000:3000`
