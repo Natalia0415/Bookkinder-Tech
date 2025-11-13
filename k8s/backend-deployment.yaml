@@ -18,6 +18,11 @@ spec:
           image: bookkinder-backend:latest
           imagePullPolicy: Never
           env:
+            - name: DB_CONNECTION
+              valueFrom:
+                configMapKeyRef:
+                  name: bookkinder-config
+                  key: DB_CONNECTION
             - name: DB_HOST
               valueFrom:
                 configMapKeyRef:
@@ -33,6 +38,11 @@ spec:
                 configMapKeyRef:
                   name: bookkinder-config
                   key: DB_USERNAME
+            - name: DB_PORT
+              valueFrom:
+                configMapKeyRef:
+                  name: bookkinder-config
+                  key: DB_PORT
             - name: DB_PASSWORD
               valueFrom:
                 secretKeyRef:
