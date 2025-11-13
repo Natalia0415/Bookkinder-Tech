@@ -4,10 +4,9 @@ metadata:
   name: backend
   namespace: bookkinder-dev
 spec:
-  type: NodePort
+  type: ClusterIP
   selector:
     app: backend
   ports:
-    - port: 8000          # Puerto interno del contenedor
-      targetPort: 8000    # A dónde redirige el tráfico dentro del pod
-      nodePort: 32000     # Puerto expuesto en tu máquina
+    - port: 8000
+      targetPort: 8000

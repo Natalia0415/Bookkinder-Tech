@@ -15,10 +15,10 @@ spec:
     spec:
       containers:
         - name: mysql
-          image: mysql:8.0
+          image: mysql:8.4
           env:
             - name: MYSQL_ROOT_PASSWORD
-              value: root
+              value: "123456789"
             - name: MYSQL_DATABASE
               value: bookkinder
           ports:
@@ -28,7 +28,8 @@ spec:
               mountPath: /var/lib/mysql
       volumes:
         - name: mysql-storage
-          emptyDir: {}
+          persistentVolumeClaim:
+            claimName: mysql-pvc
 
 ---
 apiVersion: v1
@@ -42,4 +43,3 @@ spec:
   ports:
     - port: 3306
       targetPort: 3306
-  clusterIP: None

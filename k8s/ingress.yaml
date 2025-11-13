@@ -3,9 +3,9 @@ kind: Ingress
 metadata:
   name: bookkinder-ingress
   namespace: bookkinder-dev
-  annotations:
-    nginx.ingress.kubernetes.io/rewrite-target: /
+  annotations: {}
 spec:
+  ingressClassName: nginx
   rules:
     - host: bookkinder.local
       http:
@@ -14,6 +14,13 @@ spec:
             pathType: Prefix
             backend:
               service:
-                name: frontend-svc
+                name: bookkinder-frontend
                 port:
                   number: 3000
+          - path: /api
+            pathType: Prefix
+            backend:
+              service:
+                name: api
+                port:
+                  number: 80
