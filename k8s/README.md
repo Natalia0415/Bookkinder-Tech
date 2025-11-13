@@ -21,13 +21,14 @@
 ## Preparar imágenes locales
 1. **Construir imágenes**
    ```bash
+   cd k8s
    docker build -t bookkinder-backend:latest -f ../bookkinder-backend/docker/Dockerfile ../bookkinder-backend
-   docker build -t bookkinder-frontend-frontend:latest -f ../bookkinder-frontend/docker/Dockerfile ../bookkinder-frontend
+   docker build -t bookkinder-frontend:latest -f ../bookkinder-frontend/docker/Dockerfile ../bookkinder-frontend
    ```
 2. **Cargar en Minikube** (solo necesario si `imagePullPolicy: Never` o no hay registry accesible):
    ```bash
    minikube image load bookkinder-backend:latest
-   minikube image load bookkinder-frontend-frontend:latest
+   minikube image load bookkinder-frontend:latest
    ```
 
 ## Despliegue paso a paso

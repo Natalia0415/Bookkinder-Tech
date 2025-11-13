@@ -15,7 +15,7 @@ spec:
     spec:
       containers:
         - name: bookkinder-frontend
-          image: bookkinder-frontend-frontend:latest
+          image: bookkinder-frontend:latest
           imagePullPolicy: Never
           env:
             - name: VITE_API_BASE_URL
