@@ -31,6 +31,12 @@
    minikube image load bookkinder-frontend:latest
    ```
 
+3. **Reiniciar despliegue** (solo si la imagen se actualiza):
+   ```bash
+   kubectl rollout restart deployment bookkinder-backend -n bookkinder-dev
+   kubectl rollout restart deployment bookkinder-frontend -n bookkinder-dev
+   ```
+
 ## Despliegue paso a paso
 > Todos los comandos siguientes son obligatorios salvo que se indique lo contrario. Ejecuta cada bloque completo antes de continuar.
 
